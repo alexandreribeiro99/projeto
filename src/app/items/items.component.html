@@ -1,0 +1,22 @@
+<h2>itens</h2>
+  <table *ngFor="let item of items.items">
+    <tr>
+      <th>Repositório</th>
+      <th>Descrição do Repositório</th>
+      <th>Nome do autor</th>
+      <th>Foto do autor</th>
+      <th>Número de estrelas</th>
+      <th>Número de forks</th>
+    </tr>
+
+    <tr>
+      <th>{{ item.name }}</th>
+      <th>{{ item.description }}</th>
+      <th>{{ item.owner.login }}</th>
+      <th>{{ item.owner.avatar_url }}</th>
+      <th>{{ item.stargazers_count }}</th>
+      <th>{{ item.forks }}</th>
+    </tr>
+  </table>
+
+
