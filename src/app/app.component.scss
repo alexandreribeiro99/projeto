@@ -1,0 +1,85 @@
+
+
+.categorias ul{
+	list-style: none;
+	padding-left: 0px;
+}
+
+.categorias li{
+	border: 1px solid black;
+	border-bottom: 1px solid white;
+	background-color: #005797;
+	padding-left: 5px;
+	text-align: left;
+}
+
+.categorias a{
+	color: white;
+	text-decoration: none;
+	font-size: 22px;
+}
+
+.categorias li:hover{
+	color: white;
+	background-color: #b81e1e;
+	transition: 0.6s;
+}
+.carousel{
+	padding-top: 15px;
+}
+
+.menu-superior{
+	font-weight: bold;
+	background-color: red;
+}
+
+
+
+.menu-superior li{
+	color: white;
+}
+
+
+.menu-superior li a{
+	border-left: 1px solid white;
+}
+
+
+.carousel{
+	max-width: 1100px;
+}
+
+main{
+ min-height: 100px;
+}
+
+.icon-bar {
+	color: black;
+}
+
+.botao-sanduiche{
+	padding-bottom: -5px;
+}
+
+.navbar-header button:hover{
+	background-color: rgba(0,0,0,0.3);
+}
+
+@media(max-width:768px) {
+    .carousel {
+    	padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+
+    .navbar-fixed-top .navbar-brand {
+
+        padding: 5px 0;
+    }
+}
+
+.produtos img{
+	width: 100%;
+}
+
+.produtos label{
+	font-size: 18px;
+}

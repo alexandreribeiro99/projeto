@@ -1,7 +1,5 @@
 import { ItemsService } from './../items.service';
 import { Component, OnInit } from '@angular/core';
-import { Pipe } from '@angular/core';
-import { DoBootstrap } from '@angular/core';
 
 @Component({
   selector: 'app-items',
