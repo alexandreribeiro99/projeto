@@ -9,12 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class ItemsComponent implements OnInit {
 
   items: any;
+  pull:any;
+
+
 
   constructor(private ItemsService: ItemsService) { }
 
   ngOnInit() {
     this.listarItems();
-    console.log(this.items);
+    console.log(this.items.total_count)
   }
 
   listarItems(){

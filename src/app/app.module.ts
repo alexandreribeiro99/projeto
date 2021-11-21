@@ -6,6 +6,8 @@ import { ItemsComponent } from './items/items.component';
 import { ItemsService } from './items.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CardsComponent } from './cards/cards.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -18,7 +20,8 @@ import { CardsComponent } from './cards/cards.component';
    ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
   ],
   providers: [HttpClientModule,ItemsService],
   bootstrap: [AppComponent]
