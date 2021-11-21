@@ -1,0 +1,53 @@
+<!-- After clicking the button open the modal dialog using open/close event binding methods -->
+<button type="button" class="btn btn-info btn-lg" (click)="closeModalDialog()">Open Login Modal Dialog!</button>
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+
+<!-- modal -->
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+  <!-- modal-dialog -->
+  <div class="modal-dialog" role="document">
+    <!-- modal-content -->
+    <div class="modal-content">
+      <!-- modal-header -->
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="openModalDialog()"><span aria-hidden="true">&times;</span></button>
+        <!-- <h4 class="modal-title">Login</h4> -->
+      </div>
+
+      <!-- modal-body -->
+      <div class="modal-body">
+        <p>hellow world</p>
+      </div>
+
+      <!-- modal-footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="closeModalDialog()" >Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<body>
+  <div class="chamaLista"  *ngFor="let item of items.items">
+    <div class="content">
+      <div class="card">
+        <div class="topCard">
+          <img src="{{ item.owner.avatar_url }}" class="media-card" />
+          <h2 class="title">{{ item.owner.login }}</h2>
+          <h5 class="">{{ item.name }}</h5>
+          <br /><br />
+          <p class="secondText">{{ item.description }}</p>
+        </div>
+        <div class="bottomCard">
+          <div class="actionsCard"><span class="estrela">
+            <b> {{  item.stargazers_count }}</b></span>
+            <span class="forks">
+            <b> {{  item.forks }}</b></span>
+            <button (click)="acao()" data-toggle="modal" data-target=".modal" id="pull" class="btn btn-outline-dark" > Forks
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

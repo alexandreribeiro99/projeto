@@ -9,7 +9,7 @@ export class ItemsService {
 
 constructor(private http: HttpClient) { }
 
-estaurl: string = "https://api.github.com/search/repositories?q=language:Java&sort=stars&%20page=1";
+estaurl: string = "https://api.github.com/search/repositories?q=language:Java&sort=stars&%10page=1";
 
 
   listarItems(): Observable<any>{

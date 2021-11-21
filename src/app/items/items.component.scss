@@ -1,1 +1,74 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: gray;
+}
 
+header {
+  background-color: #fd9635;
+  border-top: 1px solid #fd9635;
+}
+
+.tituloPrincipal h1 {
+  text-align: center;
+  text-shadow: 3px 3px 5px red;
+  color: white;
+}
+
+.tituloPrincipal {
+  border-bottom: 1px solid white;
+}
+
+main {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.cardPrincipal {
+  background-color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.rodape {
+  height: 80px;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  text-shadow: 2px 2px 2px 2px black;
+  background: #6b6c68;
+  line-height: 80px;
+  border: 1px solid white;
+}
+
+.conteudoPricipal {
+  border: 3px;
+}
+
+.cabecalho nav li{
+  display: inline-block;
+  list-style: none;
+  border: 1px solid white;
+}
+
+.cabecalho nav a{
+  background: rgba($color: #fd9635, $alpha: 0.2);
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  text-transform: lowercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+
+}
+
+.cabecalho nav a:hover{
+  text-decoration: underline;
+
+}
+
+.cabecalho nav ul{
+  text-align: right;
+  margin: 10px 50px 0 0;
+}
