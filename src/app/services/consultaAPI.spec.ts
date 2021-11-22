@@ -1,16 +1,15 @@
-/* tslint:disable:no-unused-variable */
-
+import { consultaAPI } from './consultaAPI.service';
 import { TestBed, async, inject } from '@angular/core/testing';
-import { ItemsService } from './items.service';
+
 
 describe('Service: Items', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ItemsService]
+      providers: [consultaAPI]
     });
   });
 
-  it('should ...', inject([ItemsService], (service: ItemsService) => {
+  it('should ...', inject([consultaAPI], (service: consultaAPI) => {
     expect(service).toBeTruthy();
   }));
 });

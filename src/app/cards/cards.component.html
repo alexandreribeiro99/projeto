@@ -1,24 +1,26 @@
 <ng-template #modalData let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">PullRequests</h4>
-  </div>
-  <div class="modal-body">
-    <p><strong>Subtitulo</strong></p>
-    <table *ngFor="let item of item.pulls_url">
-      <tr>
-        <th>{{ item.url }}</th>
-      </tr>
-    </table>
-  </div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-danger"
-      (click)="modal.close('Save click')"
-    >
-      Fechar
-    </button>
-  </div>
+  <ng-container >
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">PullRequests</h4>
+    </div>
+    <div class="modal-body" *ngFor="let pulls of pullzs">
+      <p><strong>Subtitulo</strong></p>
+      <table>
+        <tr>
+          <th>{{ pulls.url }}</th>
+        </tr>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="modal.close('Save click')"
+      >
+        Fechar
+      </button>
+    </div>
+  </ng-container>
 </ng-template>
 
 <body>
@@ -29,6 +31,8 @@
           <img src="{{ item.owner.avatar_url }}" class="media-card" />
           <h2 class="title">{{ item.owner.login }}</h2>
           <h5 class="">{{ item.name }}</h5>
+
+          <h5 class="">{{ item.id }}</h5>
           <br /><br />
           <p class="secondText">{{ item.description }}</p>
         </div>
@@ -41,13 +45,13 @@
               <b> {{ item.forks }}</b></span
             >
             <button
-              (click)="triggerModal(modalData)"
+              (click)="abrirModal(modalData, item.url)"
               data-toggle="modal"
               data-target=".modal"
               id="pull"
               class="btn btn-outline-dark"
             >
-              <b> {{ pulls_url }}  Pull Request</b>
+              <b> {{ pulls_url }} Pull Request</b>
             </button>
           </div>
         </div>
