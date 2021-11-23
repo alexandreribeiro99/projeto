@@ -1,28 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class consultaAPI {
+  constructor(private http: HttpClient) {}
 
-constructor(private http: HttpClient) { }
+  api: string =
+    'https://api.github.com/search/repositories?q=language:Java&sort=stars&%10page=1';
+  urlRepositorio: string;
+  apiPulls: string;
 
-api: string = "https://api.github.com/search/repositories?q=language:Java&sort=stars&%10page=1";
-urlRepositorio: string;
-testeurl: string;
-
-  listarItems(): Observable<any>{
-      return this.http.get(this.api);
+  listarItems(): Observable<any> {
+    return this.http.get(this.api);
   }
 
-  listarPulls(testing): Observable<any>{
-    return this.http.get(testing);
+  listarPulls(apiUrl): Observable<any> {
+    return this.http.get(apiUrl);
+  }
 }
-
-
-  }
-
-
-

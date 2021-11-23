@@ -1,20 +1,27 @@
 <ng-template #modalData let-modal>
-  <ng-container >
+  <ng-container>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">PullRequests</h4>
     </div>
-    <div class="modal-body" *ngFor="let pulls of pullzs">
-          <div class="card-modal">
-            <div class="topCard">
-              <img src="{{ pulls.user.avatar_url }}" class="media-modal"/>
-               <h2 class="title">{{ pulls.user.login }}</h2><br>
-              <p class="secondText"> {{ pulls.title }} </p>
-              <br>
-              <p class="secondText-modal"> {{ pulls.body }} </p>
-              <h5 class="data-modal">{{pulls.created_at}}</h5>
-            </div>
-          </div>
+    <div class="modal-body" *ngFor="let pulls of listPulls">
+      <div class="card-modal">
+        <div class="topCard">
+          <img src="{{ pulls.user.avatar_url }}" class="media-modal" />
+          <h2 class="title">
+            <a href="{{ pulls.user.html_url }}" target="_blank">{{
+              pulls.user.login
+            }}</a>
+          </h2>
+          <p class="secondText-modal-title">
+            <a href="{{ pulls.html_url }}" target="_blank">{{ pulls.title }}</a>
+          </p>
+          <p class="secondText-modal">
+            <i>{{ pulls.body }}</i>
+          </p>
+          <p class="data-modal">{{ pulls.created_at | date: "dd/MM/yyyy" }}</p>
         </div>
+      </div>
+    </div>
     <div class="modal-footer">
       <button
         type="button"
@@ -35,8 +42,6 @@
           <img src="{{ item.owner.avatar_url }}" class="media-card" />
           <h2 class="title">{{ item.owner.login }}</h2>
           <h5 class="">{{ item.name }}</h5>
-
-          <h5 class="">{{ item.id }}</h5>
           <br /><br />
           <p class="secondText">{{ item.description }}</p>
         </div>

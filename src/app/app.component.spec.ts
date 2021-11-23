@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'testando'`, () => {
+  it(`should have as title 'Banco Itaú | Feito com você'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('testando');
+    expect(app.title).toEqual('Banco Itaú | Feito com você');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('testando app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('Banco Itaú | Feito com você app is running!');
   });
 });

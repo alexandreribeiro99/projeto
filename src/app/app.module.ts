@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -7,6 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardsComponent } from './cards/cards.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
+import { LOCALE_ID } from '@angular/core';
+import { RodapeComponent } from './rodape/rodape.component';
+
 
 
 
@@ -17,13 +19,16 @@ import { HeaderComponent } from './header/header.component';
       AppComponent,
       CardsComponent,
       HeaderComponent,
+      RodapeComponent,
    ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgbModule,
+
   ],
-  providers: [HttpClientModule,consultaAPI],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'en'} , HttpClientModule,consultaAPI, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

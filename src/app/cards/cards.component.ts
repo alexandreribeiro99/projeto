@@ -1,19 +1,19 @@
 import { consultaAPI } from './../services/consultaAPI.service';
-import { HttpClient } from "@angular/common/http";
-import { Component, OnInit, Output } from "@angular/core";
-import { ModalDismissReasons, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, Output } from '@angular/core';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: "app-cards",
-  templateUrl: "./cards.component.html",
-  styleUrls: ["./cards.component.scss"],
+  selector: 'app-cards',
+  templateUrl: './cards.component.html',
+  styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent implements OnInit {
-
   closeModal: string;
   items: any;
-  pullzs: any;
-  testing: any;
+  listPulls: any;
+  apiUrl: any;
+  pulls: any;
 
   constructor(
     private itemsService: consultaAPI,
@@ -37,8 +37,8 @@ export class CardsComponent implements OnInit {
   }
 
   abrirModal(content, url) {
-    this.testing = url + "/pulls"
-    this.itemsService.listarPulls(this.testing);
+    this.apiUrl = url + '/pulls';
+    this.itemsService.listarPulls(this.apiUrl);
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then(
@@ -50,13 +50,13 @@ export class CardsComponent implements OnInit {
         }
       );
 
-      this.listarPulls();
+    this.listarPulls();
   }
 
   listarPulls() {
-    this.itemsService.listarPulls(this.testing).subscribe(
+    this.itemsService.listarPulls(this.apiUrl).subscribe(
       (pulls) => {
-        this.pullzs = pulls;
+        this.listPulls = pulls;
         console.log(pulls);
       },
       (err) => {

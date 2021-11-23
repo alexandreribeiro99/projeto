@@ -79,6 +79,16 @@ body {
   -webkit-line-clamp: 2; // Quantidade de linhas
   -webkit-box-orient: vertical;
   margin-left: 0px;
+
+}
+
+.secondText-modal-title{
+  overflow: hidden; // Removendo barra de rolagem
+  text-overflow: ellipsis; // Adicionando "..." ao final
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // Quantidade de linhas
+  -webkit-box-orient: vertical;
+  margin-left: 0px;
 }
 
 .actionsCard {
@@ -160,7 +170,7 @@ span.estrela{
 }
 
 .media-modal {
-  width: 90px;
+  width: 80px;
   height: auto;
   float: right;
   margin-right: 20px;
@@ -171,27 +181,32 @@ span.estrela{
   background: #fff;
   box-shadow: 0px 2px 18px #f5dba4;
   border-radius: 20px;
-  min-width: 400px;
-  min-height: 300px;
+  min-width: 300px;
+  min-height: 220px;
   max-width: 400px;
-  max-height: 300px;
+  max-height: 220px;
   margin-left: 30px;
 }
-
-.autor-modal{
-}
-
 
 .title-modal{
   font-size: 20px;
   width: 280px;
   height: 90px;
 }
-.data-modal{
+p.data-modal {
+  position: absolute;
+  padding-top: 5px;
+}
+
+ a {
+  color: black;
+  text-decoration: none;
 
 }
 
-
+a:hover {
+  text-decoration: underline;
+}
 
 
 
