@@ -2,6 +2,9 @@ import { consultaAPI } from './../services/consultaAPI.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Output } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { lstat } from 'fs';
+import { disableDebugTools } from '@angular/platform-browser';
+import { deepStrictEqual } from 'assert';
 
 @Component({
   selector: 'app-cards',
@@ -14,6 +17,7 @@ export class CardsComponent implements OnInit {
   listPulls: any;
   apiUrl: any;
   pulls: any;
+  verificaArray: boolean;
 
   constructor(
     private itemsService: consultaAPI,
@@ -22,10 +26,10 @@ export class CardsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.listarItems();
+    this.listarItems(); //faz request na api do github para trazer repositórios ao carregar página
   }
 
-  listarItems() {
+  listarItems() {       //metodo para fazer request de repositórios e guardar a response numa variável
     this.itemsService.listarItems().subscribe(
       (items) => {
         this.items = items;
@@ -36,9 +40,9 @@ export class CardsComponent implements OnInit {
     );
   }
 
-  abrirModal(content, url) {
-    this.apiUrl = url + '/pulls';
-    this.itemsService.listarPulls(this.apiUrl);
+  abrirModal(content, url) {   //metodo para abrir o modal
+    this.apiUrl = url + '/pulls';  // pega a url do usuário e cria uma rota /pulls
+    this.itemsService.listarPulls(this.apiUrl);  //passa a variável contendo o link do próprio usuário
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then(
@@ -53,11 +57,14 @@ export class CardsComponent implements OnInit {
     this.listarPulls();
   }
 
-  listarPulls() {
+  listarPulls() { //metodo para fazer request de pulls e guardar a response numa variável
     this.itemsService.listarPulls(this.apiUrl).subscribe(
       (pulls) => {
         this.listPulls = pulls;
-        console.log(pulls);
+        if(this.listPulls < [0]){
+          return this.verificaArray = true;
+        }
+
       },
       (err) => {
         console.log('Erro', err);
