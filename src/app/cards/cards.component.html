@@ -3,13 +3,14 @@
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">PullRequests</h4> <!--Título do modal-->
     </div>
-    <div class="modal-body" *ngFor="let pulls of listPulls">            <!--Começo do card-->
-      <div class="card-modal">                                          <!--ngFor trás o array pulls, dentro de pulls-->
-        <div class="topCard">                                           <!--Não se usa o . pois o array vem direto na api-->
-          <img src="{{ pulls.user.avatar_url }}" class="media-modal" /> <!-- Trás a foto do usuário-->
+    <div class="modal-body" *ngFor="let pulls of listPulls"><!--Começo do card-->
+      <div class="card-modal">                              <!--ngFor trás o array pulls, dentro de listPulls-->
+        <div class="topCard">                               <!--Não se usa o . pois o array vem direto na api-->
+          <img src="{{ pulls.user.avatar_url }}" class="media-modal"/> <!-- Trás a foto do usuário-->
           <h2 class="title">
             <a href="{{ pulls.user.html_url }}" target="_blank">{{
-              pulls.user.login }}</a>                                   <!--Trás o usuário do github, contém link para ir para o perfil no github-->
+              pulls.user.login
+            }}</a> <!--Trás o usuário do github, contém link para ir para o perfil no github-->
           </h2>
           <p class="secondText-modal-title">
             <a href="{{ pulls.html_url }}" target="_blank">{{ pulls.title }}</a>  <!--Trás o título do pull request, contém link para ir para o pullrequest no github-->
@@ -17,9 +18,12 @@
           <p class="secondText-modal">
             <i>{{ pulls.body }}</i>
           </p>
-          <p class="data-modal">{{ pulls.created_at | date: "dd/MM/yyyy" }}</p>  <!-- Trás a data do pull request-->
+          <p class="data-modal">{{ pulls.created_at | date: "dd/MM/yyyy" }}</p> <!-- Trás a data do pull request-->
         </div>
       </div>
+    </div>
+    <div class="alert alert-warning" role="alert" *ngIf="!verificaArray"><!-- Este verificaArray trás se há pull requests-->
+      Não há pulls requests neste repositório.
     </div>
     <div class="modal-footer">
       <button
@@ -31,25 +35,26 @@
       </button>
     </div>
   </ng-container>
-</ng-template> <!--Fim do modal-->
+</ng-template>
+<!--Fim do modal-->
 
 <body>
-  <div class="chamaLista" *ngFor="let item of items.items"><!--Começo do card-->
-    <div class="content">                                  <!--ngFor trás o array items, dentro de items.items-->
-      <div class="card">                                   <!--items.items pois o começo é um objeto e apenas items não trás o array-->
+  <div class="chamaLista" *ngFor="let item of items.items"> <!--Começo do card-->
+    <div class="content">                                   <!--ngFor trás o array items, dentro de items.items-->
+      <div class="card">                                    <!--items.items pois o começo é um objeto e apenas items não trás o array-->
         <div class="topCard">
           <img src="{{ item.owner.avatar_url }}" class="media-card" /> <!--Imagem do usuário-->
-          <h2 class="title">{{ item.owner.login }}</h2> <!--Usuário do github-->
+          <h2 class="title"> {{ item.owner.login }} </h2> <!--Usuário do github-->
           <h5 class="">{{ item.name }}</h5> <!--Nome do repositório-->
-          <br /><br />
           <p class="secondText">{{ item.description }}</p> <!--Descrição do repositório-->
         </div>
         <div class="bottomCard">
           <div class="actionsCard">
             <span class="estrela">
-              <b> {{ item.stargazers_count }}</b></span><!--Exibe contagem de estrelas-->
+              <b> {{ item.stargazers_count }}</b></span> <!--Exibe contagem de estrelas-->
             <span class="forks">
-              <b> {{ item.forks }}</b></span> <!--Exibe contagem de forks-->
+              <b> {{ item.forks }}</b></span
+            > <!--Exibe contagem de forks-->
             <button
               (click)="abrirModal(modalData, item.url)"
               data-toggle="modal"
@@ -57,11 +62,12 @@
               id="pull"
               class="btn btn-outline-dark"
             >
-              <b> {{ pulls_url }} Pull Request</b>  <!--Botão para exibir Pull Requests,  ao clicar abre Modal-->
+              <b> {{ pulls_url }} Pull Request</b> <!--Botão para exibir Pull Requests,  ao clicar abre Modal-->
             </button>
           </div>
         </div>
       </div>
     </div>
-  </div> <!--Fim do card-->
+  </div>
+  <!--Fim do card-->
 </body>

@@ -1,10 +1,6 @@
 import { consultaAPI } from './../services/consultaAPI.service';
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, Output } from '@angular/core';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { lstat } from 'fs';
-import { disableDebugTools } from '@angular/platform-browser';
-import { deepStrictEqual } from 'assert';
+import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-cards',
@@ -17,12 +13,11 @@ export class CardsComponent implements OnInit {
   listPulls: any;
   apiUrl: any;
   pulls: any;
-  verificaArray: boolean;
+  verificaArray: boolean = true;
 
   constructor(
     private itemsService: consultaAPI,
     private modalService: NgbModal,
-    private http: HttpClient
   ) {}
 
   ngOnInit() {
@@ -48,6 +43,7 @@ export class CardsComponent implements OnInit {
       .result.then(
         (res) => {
           this.closeModal = `Closed with: ${res}`;
+          this.verificaArray = true;
         },
         (res) => {
           this.closeModal = `Dismissed ${res}`;
@@ -62,7 +58,8 @@ export class CardsComponent implements OnInit {
       (pulls) => {
         this.listPulls = pulls;
         if(this.listPulls < [0]){
-          return this.verificaArray = true;
+          return this.verificaArray = false;
+
         }
 
       },

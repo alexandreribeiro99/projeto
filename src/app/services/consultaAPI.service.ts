@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'; //react biblioteca
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,6 @@ export class consultaAPI {
   api: string =
     'https://api.github.com/search/repositories?q=language:Java&sort=stars&%10page=1';
   urlRepositorio: string;
-  apiPulls: string;
 
   listarItems(): Observable<any> {
     return this.http.get(this.api);
