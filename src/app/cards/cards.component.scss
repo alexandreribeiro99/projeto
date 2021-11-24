@@ -45,9 +45,7 @@ body {
 }
 
 .bottomCard {
-  padding-top: 310px;
-  padding-left: 110px;
-  position: absolute;
+  float: right;
 }
 
 .image-estrela img {
@@ -213,5 +211,14 @@ a:hover {
   margin-bottom: 82px;
   margin-top: 82px;
 
+}
+
+.card-body{
+  background-color: rgba(0, 0, 0, 0.03) !important;
+  border: none !important;
+}
+
+.card-footer , .card-header{
+  border: none;
 }
 

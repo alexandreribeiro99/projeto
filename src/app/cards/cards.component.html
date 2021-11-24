@@ -42,13 +42,19 @@
   <div class="chamaLista" *ngFor="let item of items.items"> <!--Começo do card-->
     <div class="content">                                   <!--ngFor trás o array items, dentro de items.items-->
       <div class="card">                                    <!--items.items pois o começo é um objeto e apenas items não trás o array-->
-        <div class="topCard">
+        <div class="card-header">
           <img src="{{ item.owner.avatar_url }}" class="media-card" /> <!--Imagem do usuário-->
-          <h2 class="title"> {{ item.owner.login }} </h2> <!--Usuário do github-->
-          <h5 class="">{{ item.name }}</h5> <!--Nome do repositório-->
+          <h2 class="title">
+            <a href="{{ item.owner.html_url }}" target="_blank">{{
+              item.owner.login
+            }}</a> <!--Trás o usuário do github, contém link para ir para o perfil no github-->
+          </h2>  <!--Usuário do github-->
+          <h5><a href="{{ item.html_url }}" target="_blank">{{ item.name }}</a></h5> <!--Nome do repositório-->
+        </div>
+        <div class="card-body">
           <p class="secondText">{{ item.description }}</p> <!--Descrição do repositório-->
         </div>
-        <div class="bottomCard">
+        <div class="card-footer">
           <div class="actionsCard">
             <span class="estrela">
               <b> {{ item.stargazers_count }}</b></span> <!--Exibe contagem de estrelas-->
